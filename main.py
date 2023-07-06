@@ -26,11 +26,13 @@ def peliculas_duracion(Pelicula: str):
     if Pelicula not in peliculas:
         return "No hay peliculas con ese nombre"
     else:
+        resultado = []
         for i in range(movies.shape[0]):
             if movies["title"][i] == Pelicula:
                 duracion = movies["runtime"][i]
                 año      = int(movies["release_year"][i])
-                return {"Pelicula":Pelicula,"Duracion":duracion,"Año":año}
+                resultado.append({"Pelicula":Pelicula,"Duracion":duracion,"Año":año})
+        return resultado
     
 @app.get("/franquicia/{Franquicia}")
 def franquicia(Franquicia:str):
