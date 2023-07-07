@@ -71,7 +71,6 @@ def productoras_exitosas(Productora:str):
             cantidad += 1
     return {"Productora":Productora,"Revenue":sum(revenue),"Cantidad de peliculas": cantidad}
 
-
 @app.get("/get_director/{Director}")
 def get_director(Director:str):
     Director = Director.lower()
@@ -82,7 +81,7 @@ def get_director(Director:str):
         if Director in str(movies["crew"][i]):
             return_total.append(movies["return"][i])
             peliculas.append({"Pelicula":movies["title"][i],
-                            'Release Year':movies["release_date"][i],'retorno_pelicula':movies["return"][i], 
+                            'Release':movies["release_date"][i],'retorno_pelicula':movies["return"][i], 
                             'budget_pelicula':movies["budget"][i], 'revenue_pelicula':movies["revenue"][i]})
     return {"Director":Director, "Return_total":sum(return_total),
             "Peliculas":peliculas}
