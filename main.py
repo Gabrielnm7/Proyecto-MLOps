@@ -1,10 +1,17 @@
 from fastapi import FastAPI
 import pandas as pd
+import joblib
 
 app = FastAPI()
-#http://127.0.0.1:8000/
 
 movies = pd.read_csv("./Dataset/movies_clean.csv")
+cosine_sim = joblib.load('cosine_sim.joblib')
+
+@app.get("/")
+def bienvenida():
+    return {"Name": "Gabriel Nuñez Moreno",
+            "Saludo":"Bienvenidos a mi proyecto de MLOps",
+            "Github": "https://github.com/Gabrielnm7"}
 
 @app.get("/peliculas_idioma/{idioma}")
 def peliculas_idioma(Idioma: str):
@@ -86,7 +93,19 @@ def get_director(Director:str):
     return {"Director":Director, "Return_total":sum(return_total),
             "Peliculas":peliculas}
 
-
+@app.get("/recomendacion/{title}")
+def recomendacion(titulo: str, n: int = 5):
+    indice =movies[movies['title'] == titulo].index[0]
+    sim_scores = list(enumerate(cosine_sim[indice]))
+    sim_scores = sorted(sim_scores, key = lambda x: x[1], reverse = True)
+    recomendaciones = []
+    i = 1
+    while len(recomendaciones)!=5:
+        if movies.iloc[sim_scores[i][0]].title == titulo:
+                i+=1
+        recomendaciones.append((movies.iloc[sim_scores[i][0]].title))
+        i+=1
+    return {"Pelicula": titulo, "Recomendaciones": recomendaciones}
 
 
 
