@@ -5,7 +5,7 @@ import joblib
 app = FastAPI()
 
 movies = pd.read_csv("./Dataset/movies_clean.csv")
-cosine_sim = joblib.load('cosine_sim.joblib')
+cosine_sim = joblib.load('./Dataset/cosine_sim.joblib')
 
 @app.get("/")
 def bienvenida():
@@ -59,7 +59,6 @@ def franquicia(Franquicia:str):
 
 @app.get("/peliculas_pais/{Pais}")
 def peliculas_pais(Pais:str):
-    # movies.drop_duplicates(subset=["id"],inplace=True) #!¿¿¿¿ Eliminamos las peliculas repetidas ???? CONSULTAR
     Pais = Pais.lower()
     cant_peliculas_prod = 0
     for i in movies["production_countries"].str.lower():
@@ -99,7 +98,7 @@ def recomendacion(titulo: str, n: int = 5):
     sim_scores = list(enumerate(cosine_sim[indice]))
     sim_scores = sorted(sim_scores, key = lambda x: x[1], reverse = True)
     recomendaciones = []
-    i = 1
+    i = 0
     while len(recomendaciones)!=5:
         if movies.iloc[sim_scores[i][0]].title == titulo:
                 i+=1
