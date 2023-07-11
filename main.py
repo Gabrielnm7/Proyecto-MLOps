@@ -99,7 +99,7 @@ def recomendacion(titulo: str, n: int = 5):
     sim_scores = sorted(sim_scores, key = lambda x: x[1], reverse = True)
     recomendaciones = []
     i = 0
-    while len(recomendaciones)!=5:
+    while len(recomendaciones)!=n:
         if movies.iloc[sim_scores[i][0]].title == titulo:
                 i+=1
         recomendaciones.append((movies.iloc[sim_scores[i][0]].title))
