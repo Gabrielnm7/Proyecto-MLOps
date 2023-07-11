@@ -19,7 +19,7 @@ Pero aquí está la dura realidad: los datos con los que trabajo están lejos de
 <img src="./_src/ETL.png"  height=300>
 </p>
 
-### En este proyecto, se nos asignaron tareas específicas de transformación de datos que fueron llevadas a cabo como parte del proceso de ETL. Puedes encontrar un detalle más completo de cómo se realizaron estas transformaciones en el archivo [ETL](https://github.com/Gabrielnm7/Proyecto-MLOps/blob/main/ETL.ipynb). A continuación, proporciono un breve resumen de las acciones realizadas:
+### En este proyecto, se nos asignaron tareas específicas de transformación de datos que fueron llevadas a cabo como parte del proceso de ETL. Puedes encontrar un detalle más completo de cómo se realizaron estas transformaciones en el archivo [ETL](https://github.com/Gabrielnm7/Proyecto-MLOps/blob/main/Transformations/ETL.ipynb). A continuación, proporciono un breve resumen de las acciones realizadas:
 
 + **Desanidamiento de campos:** Algunos campos, como `belongs_to_collection`, `production_companies` y otros, estaban anidados en el dataset. Para poder integrarlos adecuadamente, se realizó un proceso de desanidamiento 
 
@@ -73,7 +73,7 @@ Pero aquí está la dura realidad: los datos con los que trabajo están lejos de
 
 Después de haber realizado la limpieza de los datos, llega el momento de investigar las relaciones existentes entre las variables de los datasets. Durante el EDA, exploraremos posibles patrones interesantes, detectaremos outliers o anomalías (que no necesariamente son errores) y, además, utilizaremos nubes de palabras para identificar las palabras más frecuentes en los títulos. ¡Esto podría resultar de gran ayuda para nuestro sistema de recomendación! 
 
-Todo este proceso puede apreciarse de manera mas completa en el archivo [EDA.ipynb](https://github.com/Gabrielnm7/Proyecto-MLOps/blob/main/EDA.ipynb). Te invito a explorar dicho archivo para obtener una visión más completa de las etapas y técnicas utilizadas en nuestro análisis exploratorio.
+Todo este proceso puede apreciarse de manera mas completa en el archivo [EDA.ipynb](https://github.com/Gabrielnm7/Proyecto-MLOps/blob/main/Transformations/EDA.ipynb). Te invito a explorar dicho archivo para obtener una visión más completa de las etapas y técnicas utilizadas en nuestro análisis exploratorio.
  
 
 ## <h2 align=center>  **`Sistema de recomendación`**: </h2>
@@ -87,7 +87,7 @@ Una vez que hemos hecho que todos los datos sean consumibles a través de la API
 > def **recomendacion( *`titulo`* )**:
 >    + Se ingresa el nombre de una película y te recomienda las similares en una lista de 5 valores.
 
-Para ver en mas detalle sobre como se realizo, podemos acceder al archivo [modelo_recomendacion](https://github.com/Gabrielnm7/Proyecto-MLOps/blob/main/modelo_recomendacion.ipynb)
+Para ver en mas detalle sobre como se realizo, podemos acceder al archivo [modelo_recomendacion](https://github.com/Gabrielnm7/Proyecto-MLOps/blob/main/Transformations/modelo_recomendacion.ipynb)
 
 
 ## <h2 align=center> **`Detalles adicionales del proyecto`**</h2>
