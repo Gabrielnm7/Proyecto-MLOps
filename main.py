@@ -4,9 +4,9 @@ import joblib
 
 app = FastAPI()
 
-movies = pd.read_csv("./Dataset/movies_clean.csv")
-cosine_sim = joblib.load('./Dataset/cosine_sim.joblib')
-movies_model = pd.read_csv("./Dataset/movies_model.csv")
+movies = pd.read_csv("./_src/Datasets/movies_clean.csv")
+cosine_sim = joblib.load('./_src/Datasets/cosine_sim.joblib')
+movies_model = pd.read_csv("./_src/Datasets/movies_model.csv")
 
 @app.get("/")
 def bienvenida():
