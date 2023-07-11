@@ -90,7 +90,7 @@ def get_director(Director:str):
             peliculas.append({"Pelicula":str(movies["title"][i]),
                             'Release':str(movies["release_date"][i]),'retorno_pelicula':str(movies["return"][i]), 
                             'budget_pelicula':str(movies["budget"][i]), 'revenue_pelicula':str(movies["revenue"][i])})
-    return {"Director":Director, "Return_total":int(sum(return_total)/len(return_total)),"Peliculas":peliculas}
+    return {"Director":Director, "Return_total":round(sum(return_total)/len(return_total),2),"Peliculas":peliculas}
 
 @app.get("/recomendacion/{title}")
 def recomendacion(titulo: str, n: int = 5):
