@@ -99,4 +99,4 @@ Para ver en mas detalle sobre como se realizo, podemos acceder al archivo [model
 
 + [Diccionario de datos](https://docs.google.com/spreadsheets/d/1QkHH5er-74Bpk122tJxy_0D49pJMIwKLurByOfmxzho/edit#gid=0): Diccionario con algunas descripciones de las columnas disponibles en el dataset.
 
-+ [Video explicativo]() Para que puedas entender en profundidad todo el proceso del proyecto y como funciona el sistema de recomendacion.
++ [Video explicativo](https://youtu.be/d9EJPkcv-zA) Para que puedas entender en profundidad todo el proceso del proyecto y como funciona el sistema de recomendacion.
