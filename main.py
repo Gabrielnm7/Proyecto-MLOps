@@ -6,6 +6,7 @@ app = FastAPI()
 
 movies = pd.read_csv("./Dataset/movies_clean.csv")
 cosine_sim = joblib.load('./Dataset/cosine_sim.joblib')
+movies_model = pd.read_csv("./Dataset/movies_model.csv")
 
 @app.get("/")
 def bienvenida():
@@ -94,19 +95,17 @@ def get_director(Director:str):
 
 @app.get("/recomendacion/{title}")
 def recomendacion(titulo: str, n: int = 5):
-    indice =movies[movies['title'] == titulo].index[0]
+    indice = movies_model[movies_model['title'] == titulo].index[0]
     sim_scores = list(enumerate(cosine_sim[indice]))
     sim_scores = sorted(sim_scores, key = lambda x: x[1], reverse = True)
     recomendaciones = []
     i = 0
     while len(recomendaciones)!=n:
-        if movies.iloc[sim_scores[i][0]].title == titulo:
+        if movies_model.iloc[sim_scores[i][0]].title == titulo:
                 i+=1
-        recomendaciones.append((movies.iloc[sim_scores[i][0]].title))
+        recomendaciones.append((movies_model.iloc[sim_scores[i][0]].title))
         i+=1
     return {"Pelicula": titulo, "Recomendaciones": recomendaciones}
-
-
 
 
 
